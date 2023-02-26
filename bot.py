@@ -1,8 +1,19 @@
 import random
 import requests
+<<<<<<< HEAD
 import discord
 from discord.ext import commands
 
+=======
+import os
+from dotenv import load_dotenv
+import discord
+from discord.ext import commands
+
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
+
+>>>>>>> a70daec (added latency command)
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -11,7 +22,15 @@ client = commands.Bot(command_prefix=".hn ", intents=intents, help_command=None)
 @client.event
 async def on_ready():
     print('bot ready')
+<<<<<<< HEAD
     
+=======
+
+@client.command()
+async def ping(ctx):
+    await ctx.send(f'Pong! {round(client.latency * 1000)}ms')
+
+>>>>>>> a70daec (added latency command)
 @client.command()
 async def help(ctx):
     help = discord.Embed(title="Help commands", description=".hn best for beststories\n.hn top for topstories\n.hn new for newstories")
